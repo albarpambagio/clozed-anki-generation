@@ -27,14 +27,14 @@ Before writing, classify each piece of knowledge:
 
 | Type | Example | Best Card Format |
 |---|---|---|
-| Definition | What is entropy? | Cloze on the term OR the definition |
+| Definition | What is entropy? | Cloze on the term AND the definition in one note |
 | Formula | Standard deviation formula | Cloze on the formula expression |
 | Property / Rule | When does X apply? | Cloze on the condition |
-| Cause → Effect | Why does Y happen? | Cloze on the cause OR the effect |
-| Comparison | How does A differ from B? | Two cards, one cloze each |
-| Sequence / Process | Steps of X | One card per step with position context |
+| Cause → Effect | Why does Y happen? | Cloze on the cause AND the effect in one note |
+| Comparison | How does A differ from B? | One note with c1 for A, c2 for B |
+| Sequence / Process | Steps of X | One note with c1, c2, c3 for each step |
 | Number / Threshold | Critical value at 95% CI | Cloze on the number |
-| Notation / Symbol | What does σ represent? | Cloze on the symbol or its meaning |
+| Notation / Symbol | What does σ represent? | Cloze on the symbol AND its meaning in one note |
 
 **Never card things you don't understand.** Cloze cards for misunderstood material only reinforce confusion.
 
@@ -42,13 +42,18 @@ Before writing, classify each piece of knowledge:
 
 ## Step 2: Cloze Deletion Rules
 
-### Rule 1 — One deletion per concept
-Each `{{c1::...}}` should hide exactly one retrievable fact. Do not hide a phrase that contains two distinct ideas.
+### Rule 1 — One deletion per concept, but consolidate related facts into one note
+Each `{{c1::...}}` should hide exactly one retrievable fact. Do not hide a phrase that contains two distinct ideas. However, **group related facts into a single note** using multiple cloze numbers (c1, c2, c3) rather than creating separate notes.
 
 ```
 ❌ The {{c1::mean is the sum of values divided by n, and is sensitive to outliers}}.
-✓  The mean is calculated by dividing the sum of values by {{c1::n}}.
-✓  The mean is sensitive to {{c1::outliers}}.
+✓  The mean is calculated by dividing the sum of values by {{c1::n}}, and is sensitive to {{c2::outliers}}.
+
+❌ (Separate notes)
+   Note A: The {{c1::mean}} is calculated by dividing the sum of values by n.
+   Note B: The mean is calculated by dividing the sum of values by {{c1::n}}.
+✓  (Consolidated note)
+   The {{c1::mean}} is calculated by dividing the sum of values by {{c2::n}}.
 ```
 
 ### Rule 2 — The stem must be self-sufficient
@@ -59,15 +64,16 @@ The sentence around the deletion must fully constrain the answer. A reader shoul
 ✓  The mean of a binomial distribution equals {{c1::np}}.
 ```
 
-### Rule 3 — Multi-cloze (c1 + c2) for related paired facts
-Use c1 and c2 on the same card **only** when the two facts are inherently linked and remembering one helps recall the other. Anki creates a separate card for each cN.
+### Rule 3 — Multi-cloze (c1 + c2 + c3) for related facts in one note
+Use c1, c2, c3 on the same note when facts are related, complementary, or form a natural pair/group. Anki creates a separate card for each cN. **Prefer consolidation over fragmentation.**
 
 ```
 ✓  The sample mean is denoted {{c1::x̄}}, and the population mean is denoted {{c2::μ}}.
 ✓  Type I error probability = {{c1::α}}; Type II error probability = {{c2::β}}.
+✓  Refresh time comprises three phases: {{c1::data load time}}, {{c2::transformation time}}, and {{c3::model load time}}.
 ```
 
-Limit to c1–c3 per card. More than three deletions creates cognitive overload.
+Limit to c1–c4 per note. More than four deletions creates cognitive overload.
 
 ### Rule 4 — Delete the answer, not the question
 The hidden text should be the hard-to-remember part — not the framing.
@@ -85,23 +91,20 @@ Give enough context that the card is answerable without outside knowledge.
 ✓  The sample variance formula is: s² = {{c1::Σ(x − x̄)² / (n − 1)}}.
 ```
 
-### Rule 6 — Avoid lists as single cards
-Break lists into individual cards, or restructure as enumerated cloze.
+### Rule 6 — Break lists into enumerated cloze within one note
+Do not hide an entire list behind a single cloze. Instead, use numbered clozes in one consolidated note.
 
 ```
 ❌ The sampling methods are {{c1::simple random, stratified, cluster, systematic, convenience}}.
 
-✓  In {{c1::stratified}} sampling, the population is divided into groups and a proportionate number is drawn from each.
-✓  In {{c1::cluster}} sampling, whole groups are randomly selected and all members included.
-✓  In {{c1::systematic}} sampling, every kth member is chosen after a random start.
+✓  The four main sampling methods are {{c1::simple random}}, {{c2::stratified}}, {{c3::cluster}}, and {{c4::systematic}} sampling.
 ```
 
-### Rule 7 — Cloze both directions for definitions
-For key terms, create two cards: one clozed on the term, one on the definition.
+### Rule 7 — Cloze both directions within the same note
+For key terms, put both the term and the definition in the same note with different cloze numbers.
 
 ```
-Card A: {{c1::Inferential statistics}} uses probability to draw conclusions from sample data about a population.
-Card B: Inferential statistics uses {{c1::probability}} to draw {{c2::conclusions from sample data about a population}}.
+✓  {{c1::Inferential statistics}} uses {{c2::probability}} to draw conclusions from sample data about a population.
 ```
 
 ---
@@ -113,31 +116,31 @@ Use these proven stem patterns to write cloze cards that are clear and unambiguo
 ### Definition
 ```
 [Term] is defined as {{c1::[definition]}}.
-A {{c1::[term]}} is [definition].
+A {{c1::[term]}} is [definition], characterized by {{c2::[key property]}}.
 ```
 
 ### Formula
 ```
 The formula for [concept] is: [name] = {{c1::[formula]}}.
-In the formula [formula], [variable] represents {{c1::[meaning]}}.
+In the formula [formula], [variable] represents {{c1::[meaning]}} and [variable2] represents {{c2::[meaning2]}}.
 ```
 
 ### Condition / When-to-use
 ```
 [Method/test] is used when {{c1::[condition]}}.
-The [formula] applies only if {{c1::[assumption]}}.
+The [formula] applies only if {{c1::[assumption]}} and {{c2::[assumption2]}}.
 ```
 
 ### Cause → Effect
 ```
-[Cause] leads to {{c1::[effect]}}.
+[Cause] leads to {{c1::[effect]}} and {{c2::[secondary effect]}}.
 When [condition], the result is {{c1::[outcome]}}.
 ```
 
 ### Comparison
 ```
-Unlike [A], [B] is {{c1::[distinguishing feature]}}.
-[A] measures [X], while [B] measures {{c1::[Y]}}.
+Unlike [A], [B] is {{c1::[distinguishing feature]}}; unlike [B], [A] is {{c2::[distinguishing feature]}}.
+[A] measures [X], while [B] measures {{c1::[Y]}} and operates via {{c2::[mechanism]}}.
 ```
 
 ### Numeric threshold / value
@@ -176,11 +179,12 @@ Extra:      Ch.4 – Binomial Distribution | μ = np; σ = √(np(1−p))
 |---|---|---|
 | Clozed the whole answer phrase | Card becomes trivial pattern-matching | Delete only the core fact, keep framing |
 | No subject in stem | Card is ambiguous without context | Add the subject explicitly |
-| c1 hides two distinct facts | Fails one-fact-per-card rule | Split into two cards |
+| c1 hides two distinct facts | Fails one-fact-per-card rule | Split into c1 and c2 in same note |
 | Clozing obvious filler words | Tests reading, not knowledge | Only delete meaningful content |
 | Very long deletions | Hard to recall precisely | Shorten or rephrase the sentence |
-| Identical twins (c1 and c2 hide same type of thing) | Confusing when both are blank | Differentiate stems or separate cards |
+| Identical twins (c1 and c2 hide same type of thing) | Confusing when both are blank | Differentiate stems or use context clues |
 | Cards that only work with the textbook | Not self-contained | Add enough context in the stem |
+| Fragmenting related facts into separate notes | Creates redundant cards, harder to maintain | Consolidate into one note with c1, c2 |
 
 ---
 
@@ -220,15 +224,16 @@ stats::ch8::confidence-intervals
 Before finalizing any batch of cards, verify:
 
 - [ ] Each card tests **exactly one** retrievable fact
+- [ ] Related facts are **consolidated into single notes** with c1, c2, c3 rather than fragmented
 - [ ] The stem sentence is **self-sufficient** — answerable without outside context
 - [ ] The deletion hides the **hard-to-remember** part, not the framing
-- [ ] Multi-cloze (c1+c2) used only for **inherently paired** facts
+- [ ] Multi-cloze (c1+c2+c3) used for **related facts in one note**
 - [ ] **No naked deletions** — the answer type is always clear from context
-- [ ] **No lists** hidden behind a single cloze — lists are broken into individual cards
+- [ ] **No list clozes** — lists use enumerated c1, c2, c3 in one note
 - [ ] **Extra field** populated with source chapter and/or context
 - [ ] Cards can be answered in **under 10 seconds**
-- [ ] Cloze cards for **definitions** exist in both directions (term → def and def → term)
 - [ ] **Formulas** have variable meanings in the Extra field
+- [ ] Notes with multiple clozes feel like **one cohesive idea**, not random facts stitched together
 
 ---
 
@@ -236,12 +241,12 @@ Before finalizing any batch of cards, verify:
 
 As a rough guide for a typical textbook chapter:
 
-| Content Type | Cards per Unit |
-|---|---|
-| Key term / definition | 2 (both directions) |
-| Formula | 1–3 (formula itself + key variable meanings) |
-| Rule / condition | 1 per condition |
-| Numeric threshold | 1 per value |
-| Comparison between two concepts | 2 (one per distinguishing feature) |
-| Process / sequence (n steps) | n cards (one per step) |
-| Notation / symbol | 1 per symbol |
+| Content Type | Notes per Unit | Clozes per Note |
+|---|---|---|
+| Key term / definition | 1 | 2 (term + definition) |
+| Formula | 1 | 2–3 (formula + key variables) |
+| Rule / condition | 1 | 1–2 |
+| Numeric threshold | 1 | 1 |
+| Comparison between two concepts | 1 | 2 (one per concept) |
+| Process / sequence (n steps) | 1 | n clozes |
+| Notation / symbol | 1 | 2 (symbol + meaning) |

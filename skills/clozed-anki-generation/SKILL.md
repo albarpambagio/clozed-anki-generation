@@ -223,6 +223,7 @@ stats::ch8::confidence-intervals
 
 Before finalizing any batch of cards, verify:
 
+- [ ] **No section header / separator rows** in the CSV — rows like `"--- TOPIC NAME ---","--- SECTION HEADER ---"` are not valid Anki notes and must never appear. Topic grouping belongs only in the tagging strategy, not in the CSV rows themselves.
 - [ ] Each card tests **exactly one** retrievable fact
 - [ ] Related facts are **consolidated into single notes** with c1, c2, c3 rather than fragmented
 - [ ] The stem sentence is **self-sufficient** — answerable without outside context
